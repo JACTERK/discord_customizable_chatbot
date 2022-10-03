@@ -14,6 +14,10 @@ OPENAI_API_KEY=<YOUR_KEY>
 ```
 
 Integrate this bot into your server by entering your OpenAI key and your Discord Bot key, and start the program by running the `mail.py` file.
+
+```
+python3 mail.py
+```
 ## Required Prerequisites
 
 The following packages need to be installed:
