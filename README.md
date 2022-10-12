@@ -22,7 +22,7 @@ python3 mail.py
 
 The following packages need to be installed:
 ```
-pip install discord openai python-dotenv
+pip install discord openai python-dotenv apscheduler schedule
 ```
 
 ## Configuration
