@@ -18,7 +18,10 @@ from dotenv import load_dotenv
 load_dotenv()
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
-discord_client =  discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+
+discord_client = discord.Client(intents=intents)
 
 #console message to indicate the bot has come online.
 @discord_client.event
@@ -34,7 +37,7 @@ async def on_message(message):
     
 
 
-    #change Trigger Name to what you want the bot to respond to in the server.
+    #change 'summit' to what you want the bot to respond to in the server.
     if settings.trigger_name in message.content.lower():
 
         resp = functions.generate_response(message.content, settings.prompt)
@@ -60,7 +63,16 @@ async def on_message(message):
             return
 
         else:
-            await message.channel.send(settings.default_response)
+            await message.channel.send("Fuck you.")
+
+    if settings.picture_name in message.content.lower():
+
+        await asyncio.sleep(random.randrange(3,5))
+
+        async with message.channel.typing():
+                await asyncio.sleep(random.randrange(3,5))
+
+        await message.channel.send(functions.mit_image())
 
 
 discord_client.run(DISCORD_TOKEN)
