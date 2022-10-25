@@ -63,16 +63,7 @@ async def on_message(message):
             return
 
         else:
-            await message.channel.send("Fuck you.")
-
-    if settings.picture_name in message.content.lower():
-
-        await asyncio.sleep(random.randrange(3,5))
-
-        async with message.channel.typing():
-                await asyncio.sleep(random.randrange(3,5))
-
-        await message.channel.send(functions.mit_image())
+            await message.channel.send(settings.default_response)
 
 
 discord_client.run(DISCORD_TOKEN)
